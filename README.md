@@ -73,7 +73,7 @@
 
 ## 验证
 
-用真实 Chrome 通过 CDP 驱动，**326 条断言，0 失败**：HTML/离线契约、首帧、全部控件、音频信号、音序器、静音、持久化（含被禁用的 storage）、reduced-motion、11 档视口无溢出、a11y 清单，以及压力项（20 音复音、3000 音爆发、声部上限与接管、速度极值、边移八度边演奏、DPR 3、320→2560 px、焦点顺序、引擎重建）。
+用真实 Chrome 通过 CDP 驱动，**327 条断言，0 失败**：HTML/离线契约、首帧、全部控件、音频信号、音序器、静音、持久化（含被禁用的 storage）、reduced-motion、11 档视口无溢出、a11y 清单，以及压力项（20 音复音、3000 音爆发、声部上限与接管、速度极值、边移八度边演奏、DPR 3、320→2560 px、焦点顺序、引擎重建）。
 
 另经一轮独立对抗性审计，发现并修掉 1 个 blocker、若干 major（含"复用的被偷声部带着旧 release 的 `stop()` 时间而永久静音"、"八度切换漏重映射按下状态"）后才定稿。全程 0 异常、0 控制台错误、0 警告、0 外部请求。
 
@@ -152,7 +152,7 @@ Patch, mute, tempo, octave and pattern persist in `localStorage`.
 
 ### Verification
 
-Driven through real Chrome over CDP: **326 assertions, 0 failures** — offline contract, first frame, every control, audio signal, sequencer, mute, persistence (including disabled storage), reduced motion, 11 viewport widths without overflow, an a11y scorecard, plus stress (20-voice polyphony, 3000-note burst, voice cap and adoption, tempo extremes, octave-shift while playing, DPR 3, 320→2560 px, focus order, engine rebuild).
+Driven through real Chrome over CDP: **327 assertions, 0 failures** — offline contract, first frame, every control, audio signal, sequencer, mute, persistence (including disabled storage), reduced motion, 11 viewport widths without overflow, an a11y scorecard, plus stress (20-voice polyphony, 3000-note burst, voice cap and adoption, tempo extremes, octave-shift while playing, DPR 3, 320→2560 px, focus order, engine rebuild).
 
 A separate adversarial audit round found and closed one blocker and several majors — including an adopted stolen voice keeping the old release's `stop()` time and going permanently silent, and an octave shift failing to remap pressed-key state — before this was considered done. No exceptions, console errors, warnings or external requests throughout.
 
